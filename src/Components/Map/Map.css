@@ -67,3 +67,22 @@
 	padding: 0;
 	margin: .6em 0 0;
 }
+
+.icon {
+	justify-content: center;
+	align-items: center;
+	color: white;
+	width: 3.6em;
+	height: 3.6em;
+	font-size: .7em;
+	font-weight: bold;
+	background-color: rgb(118, 30, 30);
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+.flag-popup {
+	width: 30px;
+	height: 20px;
+	margin-left: 10px;
+}

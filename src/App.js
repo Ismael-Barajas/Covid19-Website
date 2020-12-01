@@ -32,9 +32,9 @@ class App extends React.Component {
           <i>(For a particular select a Country from below)</i>
         <br />
         <br />
-        <Cards data={data} country={country} />
+        {/* <Cards data={data} country={country} />
         <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} />
+        <Chart data={data} country={country} /> */}
         <MyMap />
       </div>
     );

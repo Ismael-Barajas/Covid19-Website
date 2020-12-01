@@ -1,8 +1,7 @@
 import React from "react";
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 import { api2FetchCountries } from "../../api";
-import { customIcon } from "./customIcon";
-
+import L from "leaflet";
 
 class MyMap extends React.Component {
   constructor() {
@@ -17,11 +16,39 @@ class MyMap extends React.Component {
 
   async componentDidMount() {
     const fetchedData = await api2FetchCountries();
-    this.setState({data: fetchedData});
+    this.setState({ data: fetchedData });
   }
+
+  // markerData() {
+  //   const html = `
+  //   <span class="icon-marker">
+  //   <span class="icon-marker-tooltip">
+  //     <h2>test</h2>
+  //     <ul>
+  //       <li><strong>Confirmed:</strong>test </li>
+  //       <li><strong>Deaths:</strong>test </li>
+  //       <li><strong>Recovered:</strong> test</li>
+  //       <li><strong>Last Update:</strong> test</li>
+  //     </ul>
+  //   </span>
+  //   test
+  //   </span>
+  //   `;
+
+  //   const customIcon = new L.divIcon({
+  //     className: "icon",
+  //     html,
+  //   });
+  //   return customIcon;
+  // }
 
   render() {
     const position = [this.state.lat, this.state.lng];
+
+    const customIcon = new L.divIcon({
+      className: "icon",
+    });
+
     return (
       <MapContainer
         className="map"
@@ -39,7 +66,26 @@ class MyMap extends React.Component {
             key={countries.countryInfo._id}
             position={[countries.countryInfo.lat, countries.countryInfo.long]}
             icon={customIcon}
-          ></Marker>
+          >
+            <Popup>
+              <h2>{countries.country}<img src={countries.countryInfo.flag} alt={countries.country} className="flag-popup" /></h2>
+              <ul>
+                <li>
+                  <strong>Confirmed:</strong> {countries.cases}
+                </li>
+                <li>
+                  <strong>Deaths:</strong> {countries.deaths}
+                </li>
+                <li>
+                  <strong>Recovered:</strong> {countries.recovered}
+                </li>
+                <li>
+                  <strong>Last Update:</strong>{" "}
+                  {new Date(countries.updated).toLocaleString()}
+                </li>
+              </ul>
+            </Popup>
+          </Marker>
         ))}
       </MapContainer>
     );
