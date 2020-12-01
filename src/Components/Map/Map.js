@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
+import { MapContainer, Marker, TileLayer, Tooltip } from "react-leaflet";
 import { api2FetchCountries } from "../../api";
 import L from "leaflet";
 
@@ -54,37 +54,75 @@ class MyMap extends React.Component {
         className="map"
         center={position}
         zoom={this.state.zoom}
-        style={{ height: 1000, width: "100%" }}
+        style={{ height: 1000, width: "56%" }}
+        maxBounds={[[-90,-180],   [90,180]]}
+        minZoom={this.state.zoom}
       >
         <TileLayer
           attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
           url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+          noWrap="true"
         />
-
-        {this.state.data.map((countries) => (
+        {this.state.data.map((countries, index) => (
           <Marker
-            key={countries.countryInfo._id}
+            key={index}
             position={[countries.countryInfo.lat, countries.countryInfo.long]}
             icon={customIcon}
           >
-            <Popup>
-              <h2>{countries.country}<img src={countries.countryInfo.flag} alt={countries.country} className="flag-popup" /></h2>
-              <ul>
-                <li>
-                  <strong>Confirmed:</strong> {countries.cases}
-                </li>
-                <li>
-                  <strong>Deaths:</strong> {countries.deaths}
-                </li>
-                <li>
-                  <strong>Recovered:</strong> {countries.recovered}
-                </li>
-                <li>
-                  <strong>Last Update:</strong>{" "}
-                  {new Date(countries.updated).toLocaleString()}
-                </li>
-              </ul>
-            </Popup>
+            {/* <Popup className="popupme">
+              <div>
+                <h2>
+                  {countries.country}
+                  <img
+                    src={countries.countryInfo.flag}
+                    alt={countries.country}
+                    className="flag-popup"
+                  />
+                </h2>
+                <ul>
+                  <li>
+                    <strong>Confirmed:</strong> {countries.cases}
+                  </li>
+                  <li>
+                    <strong>Deaths:</strong> {countries.deaths}
+                  </li>
+                  <li>
+                    <strong>Recovered:</strong> {countries.recovered}
+                  </li>
+                  <li>
+                    <strong>Last Update:</strong>{" "}
+                    {new Date(countries.updated).toLocaleString()}
+                  </li>
+                </ul>
+              </div>
+            </Popup> */}
+            <Tooltip className="toolTip">
+              <div>
+                <h2 className="h2mem">
+                  {countries.country}
+                  <img
+                    src={countries.countryInfo.flag}
+                    alt={countries.country}
+                    className="flag-popup"
+                  />
+                </h2>
+                <ul>
+                  <li>
+                    <strong>Confirmed:</strong> {countries.cases}
+                  </li>
+                  <li>
+                    <strong>Deaths:</strong> {countries.deaths}
+                  </li>
+                  <li>
+                    <strong>Recovered:</strong> {countries.recovered}
+                  </li>
+                  <li>
+                    <strong>Last Update:</strong>{" "}
+                    {new Date(countries.updated).toLocaleString()}
+                  </li>
+                </ul>
+              </div>
+            </Tooltip>
           </Marker>
         ))}
       </MapContainer>
