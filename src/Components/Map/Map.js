@@ -1,6 +1,6 @@
 import React from "react";
 import { MapContainer, Marker, TileLayer, Tooltip } from "react-leaflet";
-import { api2FetchCountries } from "../../api";
+import { api2FetchCountries, api2FetchStateData } from "../../api";
 import L from "leaflet";
 
 class MyMap extends React.Component {
@@ -11,12 +11,14 @@ class MyMap extends React.Component {
       lng: 0,
       zoom: 2,
       data: [],
+      counties: [],
     };
   }
 
   async componentDidMount() {
     const fetchedData = await api2FetchCountries();
-    this.setState({ data: fetchedData });
+    const fetchedCounties = await api2FetchStateData();
+    this.setState({ data: fetchedData, counties: fetchedCounties });
   }
 
   // markerData() {
@@ -55,7 +57,10 @@ class MyMap extends React.Component {
         center={position}
         zoom={this.state.zoom}
         style={{ height: 1000, width: "56%" }}
-        maxBounds={[[-90,-180],   [90,180]]}
+        maxBounds={[
+          [-90, -180],
+          [90, 180],
+        ]}
         minZoom={this.state.zoom}
       >
         <TileLayer
@@ -125,6 +130,13 @@ class MyMap extends React.Component {
             </Tooltip>
           </Marker>
         ))}
+
+        {/* {this.state.counties.map((counties, index) =>(
+          <Marker
+          key={index} position={[counties.coordinates.latitude, counties.coordinates.longitude]} icon={customIcon}
+          >
+          </Marker>
+          ))} */}
       </MapContainer>
     );
   }
