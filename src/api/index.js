@@ -4,6 +4,12 @@ const url = "https://covid19.mathdro.id/api";
 const url2 = "https://corona.lmao.ninja/v3/covid-19/countries";
 const url3 = "https://corona.lmao.ninja/v3/covid-19/jhucsse/counties";
 
+// //fetcher for map countries
+// const fetcheries = url => axios.get(url2).then(res => res.data);
+// //fetcher for map counties
+// const fetcherties = url => axios.get(url3).then(res => res.data);
+
+
 export const fetchData = async (country) => {
   let changeableUrl = url;
   if (country) {
@@ -49,6 +55,7 @@ export const fetchCountries = async () => {
   }
 };
 
+//axios version
 export const api2FetchCountries = async () => {
   let response;
   try {
@@ -63,6 +70,7 @@ export const api2FetchCountries = async () => {
   return data;
 };
 
+//axios version
 export const api2FetchStateData = async () => {
   let response;
   try {
@@ -76,3 +84,33 @@ export const api2FetchStateData = async () => {
   if (!hasData) return;
   return data;
 };
+
+// //swr version
+// export const api2FetchCountries = async () => {
+//   let response;
+//   try {
+//     response = await axios.get(url2);
+//   } catch (error) {
+//     console.log(`Failed to fetch countries: ${error.message}`, error);
+//     return;
+//   }
+//   const { data } = response;
+//   const hasData = Array.isArray(data) && data.length > 0;
+//   if (!hasData) return;
+//   return data;
+// };
+
+// //swr version
+// export const api2FetchStateData = async () => {
+//   let response;
+//   try {
+//     response = await axios.get(url3);
+//   } catch (error) {
+//     console.log(`Failed to fetch countries: ${error.message}`, error);
+//     return;
+//   }
+//   const { data } = response;
+//   const hasData = Array.isArray(data) && data.length > 0;
+//   if (!hasData) return;
+//   return data;
+// };

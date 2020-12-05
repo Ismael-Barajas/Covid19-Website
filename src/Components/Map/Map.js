@@ -2,6 +2,19 @@ import React from "react";
 import { MapContainer, Marker, TileLayer, Tooltip } from "react-leaflet";
 import { api2FetchCountries, api2FetchStateData } from "../../api";
 import L from "leaflet";
+import coronaIMG from "../../images/coronavirusSmall.png";
+import covidIMG from "../../images/covidCounties.svg";
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+
+const covidCountries = new L.Icon({
+  iconUrl: coronaIMG,
+  iconSize: [30, 30],
+});
+
+const covidCounties = new L.Icon({
+  iconUrl: covidIMG,
+  iconSize: [20, 20],
+});
 
 class MyMap extends React.Component {
   constructor() {
@@ -21,35 +34,10 @@ class MyMap extends React.Component {
     this.setState({ data: fetchedData, counties: fetchedCounties });
   }
 
-  // markerData() {
-  //   const html = `
-  //   <span class="icon-marker">
-  //   <span class="icon-marker-tooltip">
-  //     <h2>test</h2>
-  //     <ul>
-  //       <li><strong>Confirmed:</strong>test </li>
-  //       <li><strong>Deaths:</strong>test </li>
-  //       <li><strong>Recovered:</strong> test</li>
-  //       <li><strong>Last Update:</strong> test</li>
-  //     </ul>
-  //   </span>
-  //   test
-  //   </span>
-  //   `;
-
-  //   const customIcon = new L.divIcon({
-  //     className: "icon",
-  //     html,
-  //   });
-  //   return customIcon;
-  // }
-
   render() {
     const position = [this.state.lat, this.state.lng];
 
-    const customIcon = new L.divIcon({
-      className: "icon",
-    });
+
 
     return (
       <MapContainer
@@ -68,11 +56,12 @@ class MyMap extends React.Component {
           url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
           noWrap="true"
         />
+        <MarkerClusterGroup>
         {this.state.data.map((countries, index) => (
           <Marker
             key={index}
             position={[countries.countryInfo.lat, countries.countryInfo.long]}
-            icon={customIcon}
+            icon={covidCountries}
           >
             {/* <Popup className="popupme">
               <div>
@@ -130,16 +119,61 @@ class MyMap extends React.Component {
             </Tooltip>
           </Marker>
         ))}
-
-        {/* {this.state.counties.map((counties, index) =>(
+        
+        {this.state.counties.map((counties, index) =>(
           <Marker
-          key={index} position={[counties.coordinates.latitude, counties.coordinates.longitude]} icon={customIcon}
+          key={index} position={[counties.coordinates.latitude, counties.coordinates.longitude]} icon={covidCounties}
           >
+            <Tooltip className="toolTip">
+              <div>
+                <h2 className="h2mem">
+                  {counties.county}
+                </h2>
+                <ul>
+                  <li>
+                    <strong>Confirmed:</strong> {counties.stats.confirmed}
+                  </li>
+                  <li>
+                    <strong>Deaths:</strong> {counties.stats.deaths}
+                  </li>
+                  <li>
+                    <strong>Recovered:</strong> {counties.stats.recovered}
+                  </li>
+                  <li>
+                    <strong>Last Update:</strong>{counties.updatedAt}
+                  </li>
+                </ul>
+              </div>
+            </Tooltip>
           </Marker>
-          ))} */}
+          ))}
+        </MarkerClusterGroup>
       </MapContainer>
     );
   }
 }
+
+  // markerData() {
+  //   const html = `
+  //   <span class="icon-marker">
+  //   <span class="icon-marker-tooltip">
+  //     <h2>test</h2>
+  //     <ul>
+  //       <li><strong>Confirmed:</strong>test </li>
+  //       <li><strong>Deaths:</strong>test </li>
+  //       <li><strong>Recovered:</strong> test</li>
+  //       <li><strong>Last Update:</strong> test</li>
+  //     </ul>
+  //   </span>
+  //   test
+  //   </span>
+  //   `;
+
+  //   const customIcon = new L.divIcon({
+  //     className: "icon",
+  //     html,
+  //   });
+  //   return customIcon;
+  // }
 
 export default MyMap;
