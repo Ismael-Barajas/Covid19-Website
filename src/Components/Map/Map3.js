@@ -152,6 +152,58 @@
 //   );
 // }
 
+/* <Popup className="popupme">
+              <div>
+                <h2>
+                  {countries.country}
+                  <img
+                    src={countries.countryInfo.flag}
+                    alt={countries.country}
+                    className="flag-popup"
+                  />
+                </h2>
+                <ul>
+                  <li>
+                    <strong>Confirmed:</strong> {countries.cases}
+                  </li>
+                  <li>
+                    <strong>Deaths:</strong> {countries.deaths}
+                  </li>
+                  <li>
+                    <strong>Recovered:</strong> {countries.recovered}
+                  </li>
+                  <li>
+                    <strong>Last Update:</strong>{" "}
+                    {new Date(countries.updated).toLocaleString()}
+                  </li>
+                </ul>
+              </div>
+            </Popup> */
+
+  // markerData() {
+  //   const html = `
+  //   <span class="icon-marker">
+  //   <span class="icon-marker-tooltip">
+  //     <h2>test</h2>
+  //     <ul>
+  //       <li><strong>Confirmed:</strong>test </li>
+  //       <li><strong>Deaths:</strong>test </li>
+  //       <li><strong>Recovered:</strong> test</li>
+  //       <li><strong>Last Update:</strong> test</li>
+  //     </ul>
+  //   </span>
+  //   test
+  //   </span>
+  //   `;
+
+  //   const customIcon = new L.divIcon({
+  //     className: "icon",
+  //     html,
+  //   });
+  //   return customIcon;
+  // }
+
+
 // /*
 // things to do:
 // data might break, trouble shoot this shit ooooooo

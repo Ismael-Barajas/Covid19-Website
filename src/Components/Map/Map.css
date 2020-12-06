@@ -9,6 +9,11 @@
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
 }
 
+.leaflet-container {
+	width: 800px; 
+	height: 500px;
+  }
+
 .smallerIcons {
 	justify-content: center;
 	align-items: center;
@@ -32,15 +37,3 @@
 .h2mem {
 	text-align: center;
 }
-
-.cluster-marker {
-	color: #fff;
-	background: #1978c8;
-	border-radius: 50%;
-	padding: 10px;
-	width: 10px;
-	height: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  }

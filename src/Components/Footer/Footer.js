@@ -1,9 +1,11 @@
 import React from "react";
+import styles from "./Footer.module.css";
+
 
 class Footer extends React.Component {
     render() {
         return(
-            <div>
+            <div className={styles.footer}>
                 <h3>SOURCES</h3>
                 <h4> References</h4>
                 <ul>

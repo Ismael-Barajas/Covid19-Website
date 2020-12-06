@@ -37,14 +37,11 @@ class MyMap extends React.Component {
   render() {
     const position = [this.state.lat, this.state.lng];
 
-
-
     return (
       <MapContainer
         className="map"
         center={position}
         zoom={this.state.zoom}
-        style={{ height: 1000, width: "56%" }}
         maxBounds={[
           [-90, -180],
           [90, 180],
@@ -63,33 +60,6 @@ class MyMap extends React.Component {
             position={[countries.countryInfo.lat, countries.countryInfo.long]}
             icon={covidCountries}
           >
-            {/* <Popup className="popupme">
-              <div>
-                <h2>
-                  {countries.country}
-                  <img
-                    src={countries.countryInfo.flag}
-                    alt={countries.country}
-                    className="flag-popup"
-                  />
-                </h2>
-                <ul>
-                  <li>
-                    <strong>Confirmed:</strong> {countries.cases}
-                  </li>
-                  <li>
-                    <strong>Deaths:</strong> {countries.deaths}
-                  </li>
-                  <li>
-                    <strong>Recovered:</strong> {countries.recovered}
-                  </li>
-                  <li>
-                    <strong>Last Update:</strong>{" "}
-                    {new Date(countries.updated).toLocaleString()}
-                  </li>
-                </ul>
-              </div>
-            </Popup> */}
             <Tooltip className="toolTip">
               <div>
                 <h2 className="h2mem">
@@ -119,7 +89,7 @@ class MyMap extends React.Component {
             </Tooltip>
           </Marker>
         ))}
-        
+
         {this.state.counties.map((counties, index) =>(
           <Marker
           key={index} position={[counties.coordinates.latitude, counties.coordinates.longitude]} icon={covidCounties}
@@ -152,28 +122,5 @@ class MyMap extends React.Component {
     );
   }
 }
-
-  // markerData() {
-  //   const html = `
-  //   <span class="icon-marker">
-  //   <span class="icon-marker-tooltip">
-  //     <h2>test</h2>
-  //     <ul>
-  //       <li><strong>Confirmed:</strong>test </li>
-  //       <li><strong>Deaths:</strong>test </li>
-  //       <li><strong>Recovered:</strong> test</li>
-  //       <li><strong>Last Update:</strong> test</li>
-  //     </ul>
-  //   </span>
-  //   test
-  //   </span>
-  //   `;
-
-  //   const customIcon = new L.divIcon({
-  //     className: "icon",
-  //     html,
-  //   });
-  //   return customIcon;
-  // }
 
 export default MyMap;

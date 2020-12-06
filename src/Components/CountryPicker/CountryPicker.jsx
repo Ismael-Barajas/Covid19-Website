@@ -8,6 +8,7 @@ const CountryPicker = ({ handleCountryChange }) => {
   useEffect(() => {
     const fetchAPI = async () => {
       setFetchedCountries(await fetchCountries());
+      // console.log("fetch countries");
     };
     fetchAPI();
   }, [setFetchedCountries]);
