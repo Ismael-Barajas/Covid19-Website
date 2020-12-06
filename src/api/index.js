@@ -4,32 +4,27 @@ const url = "https://covid19.mathdro.id/api";
 const url2 = "https://corona.lmao.ninja/v3/covid-19/countries";
 const url3 = "https://corona.lmao.ninja/v3/covid-19/jhucsse/counties";
 
-// export const fetchData = async (country) => {
-//   let changeableUrl = url;
-//   if (country) {
-//     changeableUrl = `${url}/countries/${country}`;
-//   }
+const url4 = "https://disease.sh/v3/covid-19/historical";
 
+export const fetchCountryTimeline = async (country) => {
+  let changeableUrl = url;
+  if (country) {
+    changeableUrl = `${url4}/${country}/?lastdays=all`;
+  }
 
-//   let globalUrl = `${url}/daily/`;
-
-
-//   try {
-//     // console.log(data);
-//     const {
-//       data: { confirmed, recovered, deaths, lastUpdate },
-//     } = await axios.get(changeableUrl);
-
-//     return {
-//       confirmed,
-//       recovered,
-//       deaths,
-//       lastUpdate,
-//     };
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+  try {
+    const {
+      data: { country_get, province, timeline: {cases, deaths, recovered} },
+    } = await axios.get(changeableUrl);
+    return {
+      cases,
+      recovered,
+      deaths,
+    };
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
 export const fetchData = async (country) => {

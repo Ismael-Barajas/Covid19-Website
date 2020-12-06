@@ -3,16 +3,43 @@ import { fetchDailyData } from "../../api";
 import { Line, Bar } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
-const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
+const Chart = ({ data: { confirmed, recovered, deaths }, country, timeline }) => {
   const [dailyData, setDailyData] = useState([]);
   useEffect(() => {
     const fetchAPI = async () => {
       setDailyData(await fetchDailyData());
-      // console.log("fetch daily");
-      // console.log(dailyData);
     };
     fetchAPI();
   }, []);
+
+  const timelineChart = country ? (
+    <Line
+      data={{
+        labels: Object.keys(timeline.cases),
+        datasets: [
+          {
+            data: Object.values(timeline.cases),
+            label: "Total",
+            borderColor: "#3333ff",
+            fill: true,
+          },
+          {
+            data: Object.values(timeline.deaths),
+            label: "Deaths",
+            borderColor: "red",
+            backgroundColor: "rgba(255,0,0,0.5)",
+            fill: true,
+          }
+        ],
+        
+      }}
+      options={{
+        legend: { display: false },
+        title: { display: true, text: `History in ${country}` },
+      }}
+    />
+  ) : null;
+
   const lineChart = dailyData.length ? (
     <Line
       data={{
@@ -72,7 +99,11 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
   ) : null;
 
   return (
-    <div className={styles.container}>{country ? barChart : lineChart}</div>
+    [
+      <div className={styles.container}>{country ? barChart : ""}  </div>,
+      <div className={styles.container}>{country ? timelineChart : lineChart}  </div>
+      
+    ]
   );
 };
 
