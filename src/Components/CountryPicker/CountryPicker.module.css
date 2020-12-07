@@ -1,4 +1,9 @@
 .formControl {
-  width: 30%;
-  margin-bottom: 30px !important;
+  width: 95%;
+  margin-bottom: 15px !important;
+  background-color:rgb(165, 102, 102);
+}
+
+.text { 
+  color: black;
 }

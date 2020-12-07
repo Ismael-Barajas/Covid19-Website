@@ -1,8 +1,10 @@
 .container {
-  display: flex;
-  justify-content: center;
-  width: 85%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 25%
 }
+
+/* 
 @media (max-width: 770px) {
   .container {
     width: 100%;
@@ -10,4 +12,4 @@
   .image {
     width: 100%;
   }
-}
+} */

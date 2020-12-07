@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(7, 7, 7);
   margin: 0;
 }
 
@@ -8,6 +8,22 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.charts {
+  display: flex;
+  justify-content: center;
+
+}
+
+.cards {
+
+}
+
+.picker{
+  display: flex;
+  justify-content: center;
+
 }
 
 .image {

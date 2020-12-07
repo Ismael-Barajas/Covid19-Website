@@ -1,0 +1,15 @@
+.nav {
+  width: 100%;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 9px;
+}

@@ -6,6 +6,16 @@ class Footer extends React.Component {
     render() {
         return(
             <div className={styles.footer}>
+                <h1> ABOUT </h1>
+                <h3> OUR TEAM </h3>
+                <p> 
+                Ismael Barajas, Graciela Orozco, Chao Wu, Dalisa Nguyen
+                </p>
+                <p>
+                Hello! This is our 349 Web Front-End Engineering project where we create a 'COVID-Tracker'
+                that includes updated COVID related information and visuals such as graphs and a map to 
+                depict the data. 
+                </p> 
                 <h3>SOURCES</h3>
                 <h4> References</h4>
                 <ul>
@@ -16,10 +26,12 @@ class Footer extends React.Component {
                     <li>Author: BING </li> 
                     <a href = "https://www.bing.com/covid/local/unitedstates" > https://www.bing.com/covid/local/unitedstates</a>
                 </ul>
-                <h4> Graphs and Tables </h4>
+                <h4> Graphs, Tables, and Tools </h4>
                 <ul>
                     <li>Author: Worldometer </li> 
                     <a href = "https://www.worldometers.info/coronavirus/" > https://www.worldometers.info/coronavirus/</a>
+                    <li>Author: Material UI</li>
+                    <a href = "https://material-ui.com" > https://material-ui.com</a> 
                 </ul>
                 <h4> API's </h4>
                 <ul>

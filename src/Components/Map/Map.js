@@ -22,7 +22,7 @@ class MyMap extends React.Component {
     this.state = {
       lat: 0,
       lng: 0,
-      zoom: 2,
+      zoom: 3,
       data: [],
       counties: [],
     };
