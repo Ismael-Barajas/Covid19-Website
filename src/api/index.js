@@ -1,10 +1,31 @@
 import axios from "axios";
 
+//Country Picker Api
 const url = "https://covid19.mathdro.id/api";
+//Countries Api
 const url2 = "https://corona.lmao.ninja/v3/covid-19/countries";
+//Counties Api
 const url3 = "https://corona.lmao.ninja/v3/covid-19/jhucsse/counties";
-
+//Historical Api
 const url4 = "https://disease.sh/v3/covid-19/historical";
+//Vaccine Api
+const url5 = "https://disease.sh/v3/covid-19/vaccine";
+
+export const fetchVaccineData = async () => {
+  let response;
+  try {
+    response = await axios.get(url5);
+  } catch (error) {
+    console.log(error);
+  }
+  const { data: { source, data } } = response;
+  const hasData = Array.isArray(data) && data.length > 0;
+  if (!hasData) return;
+  return {
+    source,
+    data,
+  };
+}
 
 export const fetchCountryTimeline = async (country) => {
   console.log(country);
@@ -24,10 +45,7 @@ export const fetchCountryTimeline = async (country) => {
       console.log(err);
     }
   }
-
   return {};
-
-
 };
 
 
@@ -77,7 +95,6 @@ export const fetchCountries = async () => {
   }
 };
 
-//axios
 export const api2FetchCountries = async () => {
   let response;
   try {
@@ -92,7 +109,7 @@ export const api2FetchCountries = async () => {
   return data;
 };
 
-//axios
+
 export const api2FetchStateData = async () => {
   let response;
   try {

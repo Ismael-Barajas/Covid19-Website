@@ -7,6 +7,7 @@ import {
   Footer,
   RegionChart,
   NavBar,
+  Vaccine,
 } from "./Components";
 import styles from "./App.module.css";
 import { fetchData, fetchCountryTimeline } from "./api";
@@ -42,17 +43,9 @@ class App extends React.Component {
     const { data, country, timeline } = this.state;
     return (
       <BrowserRouter>
-        <div>
-          <NavBar />
-        </div>
-        {/* <img className={styles.image} src={coronaImage} alt="COVID-19" />
-        <br />
-          <b>Global and Country Wise Cases of Corona Virus</b>
-        <br />
-          <i>(For a particular graph select a Country from below)</i>
-        <br />
-        <br /> */}
+        <NavBar />
         <Switch>
+
           <Route exact path="/">
             <div>
               <div className={styles.container}>
@@ -95,10 +88,15 @@ class App extends React.Component {
               className={styles.domo1}
             ></iframe>
           </Route>
-
+          
           <Route exact path="/about">
             <Footer />
           </Route>
+
+          <Route exact path="/vaccine">
+            <Vaccine />
+          </Route>
+          
         </Switch>
       </BrowserRouter>
     );

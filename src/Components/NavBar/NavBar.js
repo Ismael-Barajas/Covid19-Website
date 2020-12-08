@@ -64,6 +64,15 @@ const NavBar = () => {
               >
                 ABOUT
               </Button>
+              <Button
+                component={Link}
+                to="/vaccine"
+                variant="outlined"
+                className={classes.title}
+                color="inherit"
+              >
+                VACCINE
+              </Button>
             </Toolbar>
           </div>
         </AppBar>
