@@ -5,6 +5,8 @@ import styles from "./NavBar.module.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
 
+import img from "../../images/covidCounties.svg";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -25,11 +27,12 @@ const NavBar = () => {
       <div className={styles.nav}>
         <AppBar
           position="static"
-          style={{ backgroundColor: "rgb(237, 113, 105)", color: "black" }}
+          style={{ backgroundImage: "linear-gradient(rgb(242, 140, 133),  rgba(255, 158, 158, 0.398))", backgroundColor: "transparent", color: "black" }}
         >
           <div className={styles.title}>
             <Typography variant="h6">
-              Name to be determined
+              <img src={img} className={styles.rotatingimg} alt="covid" />
+              COVID-19 Watch
             </Typography>
           </div>
           <div className={styles.buttons}>

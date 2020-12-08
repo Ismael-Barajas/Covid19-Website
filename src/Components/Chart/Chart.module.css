@@ -1,7 +1,9 @@
 .container {
   width: 100%;
   max-width: 100%;
-  min-width: 25%
+  min-width: 25%;
+  background-color: rgba(228, 177, 138, 0.857);
+  border-radius: 5px;
 }
 
 /* 

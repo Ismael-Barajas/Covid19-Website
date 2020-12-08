@@ -1,5 +1,9 @@
 body {
-  background-color: rgb(7, 7, 7);
+  background-image: url(images/itl.cat_2560x1440-wallpaper_2855828.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgb(238, 205, 161);
   margin: 0;
 }
 

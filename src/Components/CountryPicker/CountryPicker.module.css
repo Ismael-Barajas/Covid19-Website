@@ -1,9 +1,20 @@
 .formControl {
-  width: 95%;
-  margin-bottom: 15px !important;
-  background-color:rgb(165, 102, 102);
+  width: 70%;
+  margin-top: 5px !important;
+  margin-bottom: 5px;
+  background-color: plum;
+  border-radius: 4px;
+  border: 2px solid red;
 }
 
-.text { 
-  color: black;
+.formControl:hover {
+  background-color: rgb(255, 110, 255);
+  box-shadow: 0px 15px 20px rgba(46, 29, 29, 0.4);
+  transform: translateY(-1px);
 }
+
+
+.text { 
+  color: black !important;
+}
+
