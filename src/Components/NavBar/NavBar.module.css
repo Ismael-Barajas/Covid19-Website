@@ -1,0 +1,30 @@
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.nav {
+  width: 100%;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 9px;
+}
+
+.rotatingimg {
+  width: 25px;
+  height: 25px;
+  animation: rotation 10s infinite linear;
+}

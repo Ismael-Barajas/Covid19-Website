@@ -1,13 +1,23 @@
 import React from "react";
-import { Cards, Chart, CountryPicker, MyMap } from "./Components";
+import {
+  Cards,
+  Chart,
+  CountryPicker,
+  MyMap,
+  Footer,
+  RegionChart,
+  NavBar,
+} from "./Components";
 import styles from "./App.module.css";
-import { fetchData } from "./api";
-import coronaImage from "./images/image.png";
-
+import { fetchData, fetchCountryTimeline } from "./api";
+import Grid from "@material-ui/core/Grid";
+import { NavLink, Switch, Route, BrowserRouter } from "react-router-dom";
+//import coronaImage from "./images/image.png";
 
 class App extends React.Component {
   state = {
     data: {},
+    timeline: {},
     country: "",
   };
 
@@ -17,26 +27,80 @@ class App extends React.Component {
   }
 
   handleCountryChange = async (country) => {
+    // if (country === undefined)
+    //   country = null;
     const fetchedData = await fetchData(country);
-    this.setState({ data: fetchedData, country: country });
+    const fetchedTimeline = await fetchCountryTimeline(country);
+    this.setState({
+      data: fetchedData,
+      timeline: fetchedTimeline,
+      country: country,
+    });
   };
 
   render() {
-    const { data, country } = this.state;
+    const { data, country, timeline } = this.state;
     return (
-      <div className={styles.container}>
-        <img className={styles.image} src={coronaImage} alt="COVID-19" />
+      <BrowserRouter>
+        <div>
+          <NavBar />
+        </div>
+        {/* <img className={styles.image} src={coronaImage} alt="COVID-19" />
         <br />
           <b>Global and Country Wise Cases of Corona Virus</b>
         <br />
-          <i>(For a particular select a Country from below)</i>
+          <i>(For a particular graph select a Country from below)</i>
         <br />
-        <br />
-        <Cards data={data} country={country} />
-        <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} />
-        <MyMap />
-      </div>
+        <br /> */}
+        <Switch>
+          <Route exact path="/">
+            <div>
+              <div className={styles.container}>
+                <Grid container>
+                  <Grid item xs={9} sm={9} md={9} lg={9} xl={9}>
+                    <MyMap />
+                  </Grid>
+                  <Grid item xs={3} sm={3} md={3} lg={3} xl={3}>
+                    <div className={styles.picker}>
+                      <CountryPicker
+                        handleCountryChange={this.handleCountryChange}
+                      />
+                    </div>
+                    <div className={styles.cards}>
+                      <Cards data={data} country={country} />
+                    </div>
+                  </Grid>
+                </Grid>
+              </div>
+              <div className={styles.charts}>
+                <Chart data={data} country={country} timeline={timeline} />
+              </div>
+            </div>
+          </Route>
+
+          <Route exact path="/graphs">
+            <iframe
+              title="Continent filter"
+              src="https://public.domo.com/cards/dPn4z"
+              className={styles.domo1}
+            ></iframe>
+            <iframe
+              title="Key Metrics"
+              src="https://public.domo.com/cards/aOm4g"
+              className={styles.domo1}
+            ></iframe>
+            <iframe
+              title="COVID19 Details"
+              src="https://public.domo.com/cards/dJ45D"
+              className={styles.domo1}
+            ></iframe>
+          </Route>
+
+          <Route exact path="/about">
+            <Footer />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }

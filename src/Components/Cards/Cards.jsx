@@ -17,7 +17,7 @@ const Cards = ({
       style: styles.infected,
       text: "Infected",
       value: confirmed.value,
-      bottemText: "Number of infect cases of COVID-19",
+      bottomText: "Number of infected cases of COVID-19",
     },
     {
       style: styles.recovered,
@@ -39,17 +39,17 @@ const Cards = ({
     },
   ];
   return (
-    <div className={styles.container}>
-      <Grid container spacing={3} justify="center">
+    <div>
         {cardDetails.map((detail, index) => (
           <Grid
             item
             component={Card}
             xs={12}
-            md={2}
+            md={12}
+            xl={12}
             className={cx(styles.Card, detail.style)}
             key={index}
-            style={{ margin: "0px 23.675px", padding: "12px" }}
+            style={{ margin: "2px 5px", textAlign: "center" }}
           >
             <CardContent>
               <Typography color="textPrimary" gutterBottom>
@@ -75,7 +75,6 @@ const Cards = ({
             </CardContent>
           </Grid>
         ))}
-      </Grid>
     </div>
   );
 };
