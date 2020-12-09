@@ -1,8 +1,17 @@
 .footer {
     color: white;
-    background-color: dimgrey;
-    position: absolute;
-    left: 30%;
-    top: 50%;
-    height: 50%;
+    border: 2px solid white;
+    border-radius: 5px;
+    border-style: double;
+    border-width: 15px;
+    /* margin: 50px; */
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    width:75%;
 }
+
+a:link {color: #A5C8E4;}
+a:visited {color:#F6A8A6;}
+a:hover {color:#FFEEA5;}

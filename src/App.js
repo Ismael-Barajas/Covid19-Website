@@ -13,7 +13,6 @@ import styles from "./App.module.css";
 import { fetchData, fetchCountryTimeline } from "./api";
 import Grid from "@material-ui/core/Grid";
 import { NavLink, Switch, Route, BrowserRouter } from "react-router-dom";
-//import coronaImage from "./images/image.png";
 
 class App extends React.Component {
   state = {
@@ -28,8 +27,6 @@ class App extends React.Component {
   }
 
   handleCountryChange = async (country) => {
-    // if (country === undefined)
-    //   country = null;
     const fetchedData = await fetchData(country);
     const fetchedTimeline = await fetchCountryTimeline(country);
     this.setState({

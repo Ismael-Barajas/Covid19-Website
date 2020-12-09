@@ -1,9 +1,9 @@
 .cards {
-    background-color: rgba(210, 255, 187, 0.837);
+    background-color: rgba(210, 255, 187, 0.837) !important;
     width: 675px;
     height: 330px;
     margin-top: 10px;
-    overflow: auto;
+    overflow: auto !important;
 }
 
 .dialog {

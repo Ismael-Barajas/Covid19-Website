@@ -106,9 +106,6 @@ class Vaccine extends Component {
                       </IconButton>
                     </DialogTitle>
                     <DialogContent dividers className={styles.dialog}>
-                      {/* <Typography variant="body2" gutterBottom>
-                        {vData.details}
-                      </Typography> */}
                       <Typography gutterBottom>
                         <p
                           dangerouslySetInnerHTML={{ __html: vData.details }}
