@@ -1,11 +1,102 @@
-.cards {
-    background-color: rgba(210, 255, 187, 0.837) !important;
-    width: 675px;
-    height: 330px;
-    margin-top: 10px;
-    overflow: auto !important;
+.phase3 {
+  background-color: rgba(181, 125, 245, 0.837) !important;
+  width: 675px;
+  height: 330px;
+  margin-top: 10px;
+  overflow: auto !important;
 }
 
-.dialog {
-    background-color: rgba(210, 255, 187, 0.871);
+.phase23 {
+  background-color: rgba(159, 245, 125, 0.837) !important;
+  width: 675px;
+  height: 330px;
+  margin-top: 10px;
+  overflow: auto !important;
+}
+
+.phase2 {
+  background-color: rgba(125, 233, 245, 0.837) !important;
+  width: 675px;
+  height: 330px;
+  margin-top: 10px;
+  overflow: auto !important;
+}
+
+.phase12 {
+  background-color: rgba(245, 173, 125, 0.837) !important;
+  width: 675px;
+  height: 330px;
+  margin-top: 10px;
+  overflow: auto !important;
+}
+
+.phase1 {
+  background-color: rgba(210, 255, 187, 0.837) !important;
+  width: 675px;
+  height: 330px;
+  margin-top: 10px;
+  overflow: auto !important;
+}
+
+.pClinical {
+  background-color: rgba(245, 125, 141, 0.837) !important;
+  width: 675px;
+  height: 330px;
+  margin-top: 10px;
+  overflow: auto !important;
+}
+
+.dP3 {
+  background-color: rgba(181, 125, 245, 0.837) !important;
+}
+
+.dP23 {
+  background-color: rgba(159, 245, 125, 0.837) !important;
+}
+
+.dP2 {
+  background-color: rgba(125, 233, 245, 0.837) !important;
+}
+
+.dP12 {
+  background-color: rgba(245, 173, 125, 0.837) !important;
+}
+
+.dP1 {
+  background-color: rgba(210, 255, 187, 0.837) !important;
+}
+
+.dPc {
+  background-color: rgba(245, 125, 141, 0.837) !important;
+}
+
+.fixDiv {
+  position: sticky;
+  margin-left: auto;
+  margin-right: auto;
+  width: 630px;
+  top: 10px;
+  color: black;
+  background-color: rgb(255, 210, 210);
+  text-align: center;
+  padding: 10px 0px;
+  border-radius: 5px;
+  margin-top: 10px;
+  -webkit-box-shadow: 0px 6px 13px 3px #000000;
+  box-shadow: 0px 6px 13px 3px #000000;
+}
+
+.dl dt {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  border-radius: 100%;
+}
+
+.dl dd {
+  display: inline-block;
+  margin: 0px 10px;
+  padding-bottom: 0;
+  vertical-align: middle;
 }
