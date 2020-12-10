@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./Footer.module.css";
+import styles from "./About.module.css";
 import { Container } from "@material-ui/core";
 
-class Footer extends React.Component {
+class About extends React.Component {
   render() {
     return (
       <Container maxWidth="xl">
-          <div className={styles.footer}>
+          <div className={styles.about}>
               <div>
                   <h1> ABOUT </h1>
                   <h3> OUR TEAM </h3>
@@ -82,4 +82,4 @@ class Footer extends React.Component {
   }
 }
 
-export default Footer;
+export default About;

@@ -4,15 +4,15 @@ import {
   Chart,
   CountryPicker,
   MyMap,
-  Footer,
-  RegionChart,
+  About,
   NavBar,
   Vaccine,
+  Graphs,
 } from "./Components";
 import styles from "./App.module.css";
 import { fetchData, fetchCountryTimeline } from "./api";
 import Grid from "@material-ui/core/Grid";
-import { NavLink, Switch, Route, BrowserRouter } from "react-router-dom";
+import {  Switch, Route, BrowserRouter } from "react-router-dom";
 
 class App extends React.Component {
   state = {
@@ -69,25 +69,11 @@ class App extends React.Component {
           </Route>
 
           <Route exact path="/graphs">
-            <iframe
-              title="Continent filter"
-              src="https://public.domo.com/cards/dPn4z"
-              className={styles.domo1}
-            ></iframe>
-            <iframe
-              title="Key Metrics"
-              src="https://public.domo.com/cards/aOm4g"
-              className={styles.domo1}
-            ></iframe>
-            <iframe
-              title="COVID19 Details"
-              src="https://public.domo.com/cards/dJ45D"
-              className={styles.domo1}
-            ></iframe>
+            <Graphs />
           </Route>
           
           <Route exact path="/about">
-            <Footer />
+            <About />
           </Route>
 
           <Route exact path="/vaccine">
