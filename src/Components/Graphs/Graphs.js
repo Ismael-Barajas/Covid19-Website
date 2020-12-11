@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Graphs.module.css";
 import { Typography, Container } from "@material-ui/core";
+import ScrollUpButton from "react-scroll-up-button";
 
 const Graphs = () => {
   return (
@@ -39,8 +40,9 @@ const Graphs = () => {
         marginwidth="0"
         frameborder="0"
         width="100%"
-        height="10600px"
+        height="10400px"
       ></iframe>
+      <ScrollUpButton />
     </Container>
   );
 };

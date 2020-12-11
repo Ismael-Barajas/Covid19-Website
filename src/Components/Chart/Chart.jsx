@@ -3,7 +3,11 @@ import { fetchDailyData } from "../../api";
 import { Line, Bar } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
-const Chart = ({ data: { confirmed, recovered, deaths }, country, timeline }) => {
+const Chart = ({
+  data: { confirmed, recovered, deaths },
+  country,
+  timeline,
+}) => {
   const [dailyData, setDailyData] = useState([]);
   useEffect(() => {
     const fetchAPI = async () => {
@@ -29,12 +33,15 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country, timeline }) =>
             borderColor: "red",
             backgroundColor: "rgba(255,0,0,0.5)",
             fill: true,
-          }
+          },
         ],
-        
       }}
       options={{
-        title: { display: true, text: `Historical data in ${country}`, fontSize:25 },
+        title: {
+          display: true,
+          text: `Historical data in ${country}`,
+          fontSize: 25,
+        },
       }}
     />
   ) : null;
@@ -60,7 +67,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country, timeline }) =>
         ],
       }}
       options={{
-        title: { display: true, text: `Global Historical data`, fontSize:25 },
+        title: { display: true, text: `Global Historical data`, fontSize: 25 },
       }}
     />
   ) : null;
@@ -71,45 +78,33 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country, timeline }) =>
         labels: ["Infected", "Deaths"],
         datasets: [
           {
-            label: "Reported",
-            backgroundColor: [
-              "rgba(0, 255, 0, 0.5)",
-              "rgba(0, 255, 0, 0.5)",
-            ],
-            hoverBackgroundColor: [
-              "rgba(0, 77, 153)",
-              "rgba(30, 102, 49)",
-            ],
-            data: [
-              confirmed.value,
-              deaths.value,
-            ],
+            label: "Current Reported",
+            backgroundColor: ["rgba(0, 255, 0, 0.5)", "rgba(0, 255, 0, 0.5)"],
+            hoverBackgroundColor: ["rgba(0, 77, 153)", "rgba(30, 102, 49)"],
+            data: [confirmed.value, deaths.value],
           },
           {
-            label: "Projected",
-            backgroundColor: [
-              "rgba(0, 0, 255, 1)",
-              "rgba(0, 0, 255, 1)",
-            ],
-            hoverBackgroundColor: [
-              "rgba(0, 77, 153)",
-              "rgba(30, 102, 49)",
-            ],
-            data: [
-              confirmed.value * 10,
-              deaths.value * 1000,
-            ],
+            label: "Current Projected",
+            backgroundColor: ["rgba(0, 0, 255, 1)", "rgba(0, 0, 255, 1)"],
+            hoverBackgroundColor: ["rgba(0, 77, 153)", "rgba(30, 102, 49)"],
+            data: [confirmed.value * 10, deaths.value * 1000],
           },
         ],
       }}
       options={{
-        title: { display: true, text: `Projected state in ${country}`, fontSize:25 },
+        title: {
+          display: true,
+          text: `Projected state in ${country}`,
+          fontSize: 25,
+        },
         scales: {
-          yAxes: [{
-              type: 'logarithmic',
-              position: 'left'
-          }],
-      }
+          yAxes: [
+            {
+              type: "logarithmic",
+              position: "left",
+            },
+          ],
+        },
       }}
     />
   ) : null;
@@ -144,18 +139,26 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country, timeline }) =>
       }}
       options={{
         legend: { display: false },
-        title: { display: true, text: `Current state in ${country}`, fontSize:25 },
+        title: {
+          display: true,
+          text: `Current state in ${country}`,
+          fontSize: 25,
+        },
       }}
     />
   ) : null;
 
-  return (
-    [
-      <div key="1" className={styles.container}>{country ? barChart : ""}  </div>,
-      <div key="2" className={styles.container}>{country ? timelineChart : lineChart}  </div>,
-      <div key="3" className={styles.container}>{country ? projectedBarChart : ""} </div>,
-    ]
-  );
+  return [
+    <div key="1" className={styles.container}>
+      {country ? barChart : ""}{" "}
+    </div>,
+    <div key="2" className={styles.container}>
+      {country ? timelineChart : lineChart}{" "}
+    </div>,
+    <div key="3" className={styles.container}>
+      {country ? projectedBarChart : ""}{" "}
+    </div>,
+  ];
 };
 
 export default Chart;

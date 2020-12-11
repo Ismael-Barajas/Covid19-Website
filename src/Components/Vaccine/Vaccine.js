@@ -15,6 +15,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import DialogContent from "@material-ui/core/DialogContent";
 import { fetchVaccineData } from "../../api";
 import styles from "./Vaccine.module.css";
+import ScrollUpButton from "react-scroll-up-button";
 
 class Vaccine extends Component {
   constructor() {
@@ -47,6 +48,7 @@ class Vaccine extends Component {
   render() {
     return (
       <Container maxWidth="xl">
+        <ScrollUpButton />
         <div className={styles.fixDiv}>
           <div>
             <dl className={styles.dl}>
