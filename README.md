@@ -2,10 +2,13 @@
 
 This is a project for CPSC 349. 
 
-Chao Wu
-Dalisa Nguyen
-Graciela Orozco
-Ismael Barajas
+-Dalisa Nguyen
+
+-Graciela Orozco
+
+-Ismael Barajas
+
+-Chao Wu
 
 ## Presentation
 
