@@ -3,7 +3,7 @@
 ## Presentation
 
 Google drive:https://drive.google.com/drive/folders/1zNFnF5HptvUYOfMp9KWcnB8TMrrnN-2G?usp=sharing
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 This is a project for CPSC 349. 
 
 -Dalisa Nguyen
