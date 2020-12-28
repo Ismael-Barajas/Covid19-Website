@@ -2,7 +2,8 @@
 
 ## Presentation
 
-Google drive: https://drive.google.com/drive/folders/1zNFnF5HptvUYOfMp9KWcnB8TMrrnN-2G?usp=sharing
+YouTube link: https://youtu.be/-x3RHGR56F4
+
 Deployed here: https://covid-19-watch-349.herokuapp.com/
 
 This is a project for CPSC 349. 
