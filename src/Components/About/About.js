@@ -17,6 +17,12 @@ class About extends React.Component {
               information and visuals such as graphs and a map to depict the
               data.
             </p>
+            <p>
+              GitHub Repo:{" "}
+              <a href="https://github.com/Ismael-Barajas/Covid19-Website">
+                https://github.com/Ismael-Barajas/Covid19-Website
+              </a>
+            </p>
             <h3>SOURCES</h3>
             <h4> References</h4>
             <ul>
